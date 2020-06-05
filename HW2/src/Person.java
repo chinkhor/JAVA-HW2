@@ -1,10 +1,15 @@
 
 import java.util.*;
 	
-public class Person implements Comparable<Person>
+public class Person implements Comparable<Person>, Comparator<Person>
 {
 	private long id;
 	private String name, address;
+	
+	public Person ()
+	{
+		
+	}
 	
 	public Person (String name)
 	{
@@ -72,5 +77,10 @@ public class Person implements Comparable<Person>
 	{
 		return "(" + this.name + ", " + this.id + ", " + this.address + ")";
 	}
-			
+	
+	public int compare(Person p1, Person p2)
+	{
+		return (p1.getAddress().compareTo(p2.getAddress()));
+	}
+	
 }

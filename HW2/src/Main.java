@@ -28,6 +28,13 @@ public class Main {
 		{
 			System.out.println(p.getName() +"'s Id is " + p.getId() + " and address is " + p.getAddress());
 		}
+		
+		System.out.println("After sorting based on address:");
+		Collections.sort(people, new Person());
+		for(Person p:people)
+		{
+			System.out.println(p.getName() +"'s Id is " + p.getId() + " and address is " + p.getAddress());
+		}
 	}
 
 }
