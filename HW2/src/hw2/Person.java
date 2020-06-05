@@ -1,4 +1,4 @@
-
+package hw2;
 import java.util.*;
 	
 public class Person implements Comparable<Person>, Comparator<Person>
@@ -6,6 +6,7 @@ public class Person implements Comparable<Person>, Comparator<Person>
 	private long id;
 	private String name, address;
 	
+	// dummy constructor for Comparator use
 	public Person ()
 	{
 		
@@ -53,6 +54,21 @@ public class Person implements Comparable<Person>, Comparator<Person>
 		return this.name;
 	}
 	
+	// override for displaying Person's elements: name, id and address
+	public String toString()
+	{
+		return "(" + this.name + ", " + this.id + ", " + this.address + ")";
+	}
+	
+	public static void showArrayList (ArrayList<Person> people)
+	{
+	    for(Person p:people)
+	    {
+		     System.out.println(p.getName() +"'s Id is " + p.getId() + " and address is " + p.getAddress());
+	    }
+	}
+	
+	// override for Comparable interface
 	public int compareTo (Person otherPerson)
 	{
 		if (this.equals(otherPerson))
@@ -73,14 +89,21 @@ public class Person implements Comparable<Person>, Comparator<Person>
 		}
 	}
 	
-	public String toString()
-	{
-		return "(" + this.name + ", " + this.id + ", " + this.address + ")";
-	}
 	
+	// override for Comparator interface
 	public int compare(Person p1, Person p2)
 	{
-		return (p1.getAddress().compareTo(p2.getAddress()));
+		String addr1 = p1.getAddress();
+		String addr2 = p2.getAddress();
+		
+		// if addresses are same, sort based on Person's names of two same addresses
+		if (addr1.equals(addr2))
+		{
+			return (p1.getName().compareTo(p2.getName()));
+		}
+		else 
+			return (addr1.compareTo(addr2));
 	}
+	
 	
 }
