@@ -14,8 +14,16 @@ public class Main {
 		System.out.println(people.toString());
 		Collections.sort(people);
 		
-		System.out.println("After sorting based on age:");
+		System.out.println("After sorting based on id:");
 		
+		for(Person p:people)
+		{
+			System.out.println(p.getName() +"'s Id is " + p.getId() + " and address is " + p.getAddress());
+		}
+		
+		System.out.println("After sorting based on name:");
+		
+		Collections.sort(people, new SortbyName());
 		for(Person p:people)
 		{
 			System.out.println(p.getName() +"'s Id is " + p.getId() + " and address is " + p.getAddress());
